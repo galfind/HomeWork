@@ -1,4 +1,4 @@
-# Функция показывает все контакты в справочнике
+
 import os
 def file_path(file_name='phone_data') -> str:
     return os.path.join(os.path.dirname(__file__), f'{file_name}.txt')
@@ -7,20 +7,19 @@ def show_contact():
     with open(path, 'r+', encoding='utf-8') as file:
         book = file.read()
     return book
-# Имя
+
 def input_firstname():
     first = input("Введи имя: ")
     remfname = first[1:]
     firstchar = first[0]
     return firstchar.upper() + remfname
-# Фамилия
+
 def input_lastname():
     last = input("Введи фамилию: ")
     remlname = last[1:]
     firstchar = last[0]
     return firstchar.upper() + remlname
 
-# Сохраняем новый контакт
 def new_contact():
     path = file_path()
     firstname = input_firstname()
@@ -30,7 +29,6 @@ def new_contact():
     with open(path,'a', encoding='utf-8') as file:
         file.write(contactDetails)
     print(contactDetails + "\nКонтакт успешно сохранён!")
-# Поиск контакта
 def search_contact():
     path = file_path()
     searchname = input("Введите имя для поиска: ")
@@ -50,7 +48,6 @@ def search_contact():
     if found == False:
         print("Не найдено", searchname)
 
-# Изменение контакта
 
 
 def change_person():
@@ -133,7 +130,7 @@ def main_menu():
         print("До свидания!")
     else:
         print("Пожалуйста, предоставьте действительные данные!\n")
-        # enter = input("Нажмите Enter, чтобы продолжить ...")
+        enter = input("Нажмите Enter, чтобы продолжить ...")
         main_menu()
 
 
